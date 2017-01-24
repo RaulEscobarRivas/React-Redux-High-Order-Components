@@ -5,10 +5,6 @@ import * as actions from '../actions';
 import { getSignedInStatus } from '../reducers';
 
 class Header extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     authButton() {
         if(this.props.signedIn) {
             return <button onClick={this.props.toggleAuth}>Sign Out</button>;
