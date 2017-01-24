@@ -10,7 +10,6 @@ class Header extends Component {
     }
 
     authButton() {
-        console.log(this.props.signedIn);
         if(this.props.signedIn) {
             return <button onClick={this.props.toggleAuth}>Sign Out</button>;
         } else {
