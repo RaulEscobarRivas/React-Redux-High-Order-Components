@@ -1,41 +1,19 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
-import { connect } from 'react-redux';
-import * as actions from '../actions';
-import { getSignedInStatus } from '../reducers';
 
-class Header extends Component {
-    authButton() {
-        if(this.props.signedIn) {
-            return <button onClick={this.props.toggleAuth}>Sign Out</button>;
-        } else {
-            return <button onClick={this.props.toggleAuth}>Sign In</button>;
-        }
+const positions = ['ARQUERO','DEFENSA','MEDIOCAMPO','11 IDEAL'];
+
+export default class Header extends Component {
+    renderLinks() {
+        return positions.map( (position, index) =>
+            <div key={index} className="position">{position}</div>
+        );
     }
 
     render() {
         return (
-            <nav className="navbar navbar-light">
-                <ul className="nav navbar-nav">
-                    <li className="nav-item">
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/resources">Resources</Link>
-                    </li>
-                    <li className="nav-item">
-                        {this.authButton()}
-                    </li>
-                </ul>
-            </nav>
+            <div className="positions">
+                {this.renderLinks()}
+            </div>
         );
     }
 }
-
-const mapStateToProps = state => {
-    return {
-        signedIn: getSignedInStatus(state)
-    }
-};
-
-export default connect(mapStateToProps, actions)(Header);
