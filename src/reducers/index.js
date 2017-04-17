@@ -1,14 +1,16 @@
 import { combineReducers } from 'redux';
-import signedInStatus from './signed-in-reducer';
+import positionSelected from './position-selected-reducer';
+import playerSelection from './player-selection-reducer';
 
 const rootReducer = combineReducers({
-    signedInStatus
+    positionSelected,
+    playerSelection
 });
 
-const getSignedInStatus = state => (
-    state.signedInStatus
+const getPositionSelected = state => (
+    state.positionSelected
 );
 
 export default rootReducer;
 
-export { getSignedInStatus };
+export { getPositionSelected };

@@ -24,3 +24,7 @@
     from {color: black;}
     to {color: white;}
 }
+
+.player-selected {
+    background: red;
+}

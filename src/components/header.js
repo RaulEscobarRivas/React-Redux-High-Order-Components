@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { positionSelected } from '../actions';
+const positions = ['ARQUERO','DEFENSA','MEDIOCAMPO', 'DELANTEROS'];
 
-const positions = ['ARQUERO','DEFENSA','MEDIOCAMPO','11 IDEAL'];
+class Header extends Component {
+    clickHandler(position) {
+        this.props.positionSelected(position);
+    }
 
-export default class Header extends Component {
+    resultClickHandler() {
+        console.log('11 IDEAL');
+    }
+
     renderLinks() {
-        return positions.map( (position, index) =>
-            <div key={index} className="position">{position}</div>
+        const links = positions.map( (position, index) =>
+            <div key={index} className="position" onClick={() => this.clickHandler(position)}>{position}</div>
         );
+
+        links.push(<div key={4} className="position result" onClick={() => this.resultClickHandler()}>{'11 IDEAL'}</div>)
+
+        return links;
+
     }
 
     render() {
@@ -17,3 +31,12 @@ export default class Header extends Component {
         );
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        positionSelected: selection => dispatch(positionSelected(selection))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Header);
+

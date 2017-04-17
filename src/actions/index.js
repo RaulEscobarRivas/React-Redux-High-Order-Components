@@ -1,7 +1,18 @@
-import { TOGGLE_AUTH } from './types';
+import {
+    POSITION_SELECTED,
+    UPDATE_PLAYER_SELECTION
+} from './types';
 
-export function toggleAuth() {
+export function positionSelected(position) {
     return {
-        type: TOGGLE_AUTH
+        type: POSITION_SELECTED,
+        position
     }
 };
+
+export function updatePlayerSelection(playerSelectionState) {
+    return {
+        type: UPDATE_PLAYER_SELECTION,
+        payload: playerSelectionState
+    }
+}
