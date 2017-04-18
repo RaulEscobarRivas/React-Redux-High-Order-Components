@@ -22,8 +22,17 @@ class Content extends Component {
         return (
             <div className="content">
                 {positionSelected && this.renderTitle()}
-                {positionSelected &&
-                    <PlayerSelection position={positionSelected} freeSpots={2} />
+                {positionSelected==='ARQUERO' &&
+                    <PlayerSelection freeSpots={1} />
+                }
+                {positionSelected==='DEFENSA' &&
+                    <PlayerSelection freeSpots={3} />
+                }
+                {positionSelected==='MEDIOCAMPO' &&
+                    <PlayerSelection freeSpots={4} />
+                }
+                {positionSelected==='DELANTEROS' &&
+                    <PlayerSelection freeSpots={3} />
                 }
             </div>
         );

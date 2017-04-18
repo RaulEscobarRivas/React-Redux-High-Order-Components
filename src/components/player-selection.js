@@ -1,21 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updatePlayerSelection } from '../actions';
-import { getPositionSelected } from '../reducers';
+import { getPositionSelected, getPlayersSelected } from '../reducers';
 
 class PlayerSelection extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            position: this.props.position,
+            position: this.props.positionSelected,
             validSelection: false,
-            players: {
-                player1: { name: 'JUGADOR 1', selected: false },
-                player2: { name: 'JUGADOR 2', selected: false },
-                player3: { name: 'JUGADOR 3', selected: false },
-                player4: { name: 'JUGADOR 4', selected: false }
-            },
+            players: this.props.players,
             freeSpots: this.props.freeSpots
         }
     }
@@ -46,7 +41,7 @@ class PlayerSelection extends Component {
 
     clickHandler(player) {
         this.setState( prevState => {
-            return Object.assign({}, prevState, { players: this.selectPlayer(player) } );
+            return Object.assign({}, this.state, { players: this.selectPlayer(player) } );
         });
 
         this.props.updatePlayerSelection(this.state);
@@ -72,8 +67,11 @@ class PlayerSelection extends Component {
 }
 
 const mapStateToProps = state => {
+    const positionSelected = getPositionSelected(state);
+
     return {
-        positionSelected: getPositionSelected(state)
+        positionSelected,
+        players: getPlayersSelected(state, positionSelected)
     }
 }
 
