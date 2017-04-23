@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getPositionSelected } from '../reducers';
 import PlayerSelection from './player-selection';
+import Arquero from './positions/arquero';
 import Share from './share';
 
 class Content extends Component {
@@ -23,16 +24,7 @@ class Content extends Component {
             <div className="content">
                 {positionSelected && positionSelected !== '11 IDEAL' && this.renderTitle()}
                 {positionSelected==='ARQUERO' &&
-                    <PlayerSelection freeSpots={1} />
-                }
-                {positionSelected==='DEFENSA' &&
-                    <PlayerSelection freeSpots={3} />
-                }
-                {positionSelected==='MEDIOCAMPO' &&
-                    <PlayerSelection freeSpots={4} />
-                }
-                {positionSelected==='DELANTEROS' &&
-                    <PlayerSelection freeSpots={3} />
+                    <Arquero />
                 }
                 {positionSelected==='11 IDEAL' &&
                     <Share />
