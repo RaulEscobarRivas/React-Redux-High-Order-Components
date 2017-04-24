@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
 import positionSelected from './position-selected-reducer';
 import playerSelection from './player-selection-reducer';
-import ARQUEROS from '../model/arqueros';
+import ARQUEROS from '../model/arquero';
+import DEFENSA from '../model/defensa';
 
 const rootReducer = combineReducers({
     positionSelected,
@@ -15,6 +16,10 @@ const getPositionSelected = state => (
 const getPlayers = (state, position) => {
     if (position === 'ARQUERO') {
         return ARQUEROS;
+    }
+
+    if (position === 'DEFENSA') {
+        return DEFENSA;
     }
 
     if (!state.playerSelection[position]) {

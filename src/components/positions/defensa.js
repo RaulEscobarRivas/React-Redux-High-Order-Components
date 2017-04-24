@@ -3,12 +3,27 @@ import { connect } from 'react-redux';
 import { updatePlayerSelection } from '../../actions';
 import { getPositionSelected, getPlayers } from '../../reducers';
 
-class Arquero extends Component {
+class Defensa extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            players: this.props.players
+            lateralIzquierdo: {
+                players: this.props.players.lateralIzquierdo,
+                selected: false
+            },
+            centralIzquierdo: {
+                players: this.props.players.centralIzquierdo,
+                selected: false
+            },
+            centralDerecho: {
+                players: this.props.players.centralDerecho,
+                selected: false
+            },
+            lateralDerecho: {
+                players: this.props.players.lateralDerecho,
+                selected: false
+            }
         }
     }
 
@@ -38,9 +53,8 @@ class Arquero extends Component {
         this.props.updatePlayerSelection(this.state);
     }
 
-    renderPlayers() {
-        const players = Object.keys(this.state.players);
-        return players.map( (player, index) => {
+    renderPlayers(players) {
+        return Object.keys(players).map( (player, index) => {
             const className = this.playerSelectedHighlight(player) ? 'player-selected' : 'player';
             return <div key={index} className={className} onClick={() => this.clickHandler(player)}>{this.state.players[player].name}</div>;
             }
@@ -51,7 +65,7 @@ class Arquero extends Component {
     render() {
         return (
             <div className="player-selection">
-                {this.renderPlayers()}
+                { this.renderPlayers(this.state.lateralIzquierdo.players) }
             </div>
         );
     }
@@ -71,5 +85,5 @@ const mapDispatchToProps = dispatch => {
         updatePlayerSelection: selection => dispatch(updatePlayerSelection(selection))
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Arquero);
+export default connect(mapStateToProps, mapDispatchToProps)(Defensa);
 
