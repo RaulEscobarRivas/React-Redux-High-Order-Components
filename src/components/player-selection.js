@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updatePlayerSelection } from '../actions';
-import { getPositionSelected, getPlayersSelected } from '../reducers';
+import { getPositionSelected, getPlayers } from '../reducers';
 
 class PlayerSelection extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            position: this.props.positionSelected,
-            validSelection: false,
-            players: this.props.players,
-            freeSpots: this.props.freeSpots
+            players: this.props.players
         }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.positionSelected !== this.props.positionSelected) {
+            this.setState({ players: nextProps.players });
+        }
+    }
+
+    playerSelectedHighlight(player) {
+        if (this.state.players[player].selected === true) return 'selected';
     }
 
     unselectAndReturnPlayers() {
@@ -25,18 +32,8 @@ class PlayerSelection extends Component {
         return unselectedPlayers;
     }
 
-    playerSelectedHighlight(player) {
-        if (this.state.players[player].selected === true) return 'selected';
-    }
-
     selectPlayer(player) {
-        if (this.state.freeSpots > 0) {
-            this.setState({ freeSpots: this.state.freeSpots-1 });
-            return Object.assign({}, this.state.players, this.state.players[player].selected = !this.state.players[player].selected);
-        } else {
-            this.setState({ freeSpots: this.props.freeSpots-1 });
-            return Object.assign({}, this.unselectAndReturnPlayers(), this.state.players[player].selected = !this.state.players[player].selected);
-        }
+        return Object.assign({}, this.unselectAndReturnPlayers(), this.state.players[player].selected = !this.state.players[player].selected);
     }
 
     clickHandler(player) {
@@ -44,11 +41,12 @@ class PlayerSelection extends Component {
             return Object.assign({}, this.state, { players: this.selectPlayer(player) } );
         });
 
-        this.props.updatePlayerSelection(this.state);
+        this.props.updatePlayerSelection(this.state.players);
     }
 
     renderPlayers() {
         const players = Object.keys(this.state.players);
+        console.log('KEYS', players);
         return players.map( (player, index) => {
             const className = this.playerSelectedHighlight(player) ? 'player-selected' : 'player';
             return <div key={index} className={className} onClick={() => this.clickHandler(player)}>{this.state.players[player].name}</div>;
@@ -71,7 +69,7 @@ const mapStateToProps = state => {
 
     return {
         positionSelected,
-        players: getPlayersSelected(state, positionSelected)
+        players: getPlayers(state, positionSelected)
     }
 }
 

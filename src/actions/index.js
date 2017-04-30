@@ -7,12 +7,16 @@ export function positionSelected(position) {
     return {
         type: POSITION_SELECTED,
         position
-    }
+    };
 };
 
-export function updatePlayerSelection(playerSelectionState) {
-    return {
-        type: UPDATE_PLAYER_SELECTION,
-        payload: playerSelectionState
-    }
+export function updatePlayerSelection(players) {
+    return (dispatch, getState) => {
+        const { positionSelected } = getState();
+        dispatch({
+            type: UPDATE_PLAYER_SELECTION,
+            position: positionSelected,
+            players
+        });
+    };
 }

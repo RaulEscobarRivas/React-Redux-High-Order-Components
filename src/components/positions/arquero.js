@@ -35,7 +35,7 @@ class Arquero extends Component {
             return Object.assign({}, this.state, { players: this.selectPlayer(player) } );
         });
 
-        this.props.updatePlayerSelection(this.state);
+        this.props.updatePlayerSelection(this.state.players);
     }
 
     renderPlayers() {
