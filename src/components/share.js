@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getPositionSelected } from '../reducers';
+import { getPositionSelected, getSelectedPlayers } from '../reducers';
 import SharingTemplate from './sharing-template';
 
 class Share extends Component {
     render() {
-        const { positionSelected } = this.props;
-
+        const { selectedPlayers } = this.props;
         return (
             <div className="share">
+                <pre>{JSON.stringify(selectedPlayers, null, 2)}</pre>
                 <SharingTemplate />
             </div>
         );
@@ -17,7 +17,7 @@ class Share extends Component {
 
 const mapStateToProps = state => {
     return {
-        positionSelected: getPositionSelected(state)
+        selectedPlayers: getSelectedPlayers(state)
     }
 }
 
