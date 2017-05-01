@@ -11,36 +11,7 @@ const getPlayersPositions = state => Object.keys(state.players);
 
 const getPositionSelected = state => state.positionSelected;
 
-const getPlayers = (state, position) => {
-    switch(position) {
-        case 'DEFENSA':
-            for (let player in state.players[position].lateralIzquierdo) {
-                if (!isSelected(state.players[position].lateralIzquierdo[player])) {
-                    return state.players[position].lateralIzquierdo;
-                }
-            }
-            for (let player in state.players[position].centralIzquierdo) {
-                if (!isSelected(state.players[position].centralIzquierdo[player])) {
-                    return state.players[position].centralIzquierdo;
-                }
-            }
-            for (let player in state.players[position].centralDerecho) {
-                if (!isSelected(state.players[position].centralDerecho[player])) {
-                    return state.players[position].centralDerecho;
-                }
-            }
-            for (let player in state.players[position].lateralDerecho) {
-                if (!isSelected(state.players[position].lateralDerecho[player])) {
-                    return state.players[position].lateralDerecho;
-                }
-            }
-            break;
-    }
-
-    return state.players[position];
-};
-
-const isSelected = player => player.selected === true;
+const getPlayers = (state, position) => state.players[position];
 
 export default rootReducer;
 

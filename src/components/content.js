@@ -21,7 +21,8 @@ class Content extends Component {
 
         return (
             <div className="content">
-                {positionSelected && positionSelected !== '11 IDEAL' && this.renderTitle() && <PlayerSelection />}
+                { positionSelected && positionSelected !== '11 IDEAL' && this.renderTitle() && <PlayerSelection /> }
+                { positionSelected === '11 IDEAL' && <Share />}
             </div>
         );
     }
