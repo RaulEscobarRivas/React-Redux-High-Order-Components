@@ -72,6 +72,7 @@ class PlayerSelection extends Component {
     }
 
     render() {
+        console.log('JUGADORES', this.props.players);
         const buttonClass = this.state.saveDisabled ? 'btn btn-default disabled' : 'btn btn-default';
         return (
             <div className="player-selection">
