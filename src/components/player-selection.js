@@ -7,10 +7,11 @@ import {
 } from '../actions';
 import {
     getPositionSelected,
-    getPlayers
+    getPlayers,
+    getPlayersPositions
 } from '../reducers';
 
-const positions = ['ARQUERO','DEFENSA','MEDIOCAMPO', 'DELANTEROS', '11 IDEAL'];
+let position;
 
 class PlayerSelection extends Component {
     constructor(props) {
@@ -57,8 +58,8 @@ class PlayerSelection extends Component {
     }
 
     renderPlayers() {
-        const players = Object.keys(this.state.players);
-        return players.map( (player, index) => {
+        position = Object.keys(this.state.players);
+        return position.map( (player, index) => {
             const className = this.playerSelectedHighlight(player) ? 'player-selected' : 'player';
             return <div key={index} className={className} onClick={() => this.clickHandler(player)}>{this.state.players[player].name}</div>;
             }
@@ -66,13 +67,11 @@ class PlayerSelection extends Component {
     }
 
     saveHandler() {
-        let selectedIndex = positions.indexOf(this.props.positionSelected);
-        selectedIndex++;
-        this.props.updatePositionSelected(positions[selectedIndex]);
+        let positionIndex = this.props.playersPositions.findIndex( element => element === this.props.positionSelected) + 1;
+        this.props.updatePositionSelected(this.props.playersPositions[positionIndex]);
     }
 
     render() {
-        console.log('JUGADORES', this.props.players);
         const buttonClass = this.state.saveDisabled ? 'btn btn-default disabled' : 'btn btn-default';
         return (
             <div className="player-selection">
@@ -90,7 +89,8 @@ const mapStateToProps = state => {
 
     return {
         positionSelected,
-        players: getPlayers(state, positionSelected)
+        players: getPlayers(state, positionSelected),
+        playersPositions: getPlayersPositions(state)
     }
 }
 

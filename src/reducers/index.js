@@ -7,6 +7,8 @@ const rootReducer = combineReducers({
     players
 });
 
+const getPlayersPositions = state => Object.keys(state.players);
+
 const getPositionSelected = state => state.positionSelected;
 
 const getPlayers = (state, position) => {
@@ -42,4 +44,8 @@ const isSelected = player => player.selected === true;
 
 export default rootReducer;
 
-export { getPositionSelected, getPlayers };
+export {
+    getPositionSelected,
+    getPlayers,
+    getPlayersPositions
+};
