@@ -68,7 +68,11 @@ class PlayerSelection extends Component {
 
     saveHandler() {
         let positionIndex = this.props.playersPositions.findIndex( element => element === this.props.positionSelected) + 1;
-        this.props.updatePositionSelected(this.props.playersPositions[positionIndex]);
+        if (positionIndex === this.props.playersPositions.length) {
+            this.props.updatePositionSelected('11 IDEAL');
+        } else {
+            this.props.updatePositionSelected(this.props.playersPositions[positionIndex]);
+        }
     }
 
     render() {
