@@ -76,12 +76,12 @@ class PlayerSelection extends Component {
     }
 
     render() {
-        const buttonClass = this.state.saveDisabled ? 'btn btn-default disabled' : 'btn btn-default';
+        const buttonClass = this.state.saveDisabled ? 'btn btn-default disabled' : 'btn btn-primary';
         return (
             <div className="player-selection">
                 {this.renderPlayers()}
                 <div className="save-button">
-                    <button className={buttonClass} onClick={() => this.saveHandler()}>{'Guardar'}</button>
+                    <button className={buttonClass} disabled={this.state.saveDisabled} onClick={() => this.saveHandler()}>{'Guardar'}</button>
                 </div>
             </div>
         );

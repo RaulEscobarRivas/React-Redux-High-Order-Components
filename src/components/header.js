@@ -36,7 +36,8 @@ const getPositionForClassName = position => {
         default:
             return position;
     }
-}
+};
+
 class Header extends Component {
     clickHandler(position) {
         this.props.positionSelected(getPositionToSelect(position));

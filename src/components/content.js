@@ -1,10 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getPositionSelected } from '../reducers';
+import {
+    positionSelected
+} from '../actions';
 import PlayerSelection from './player-selection';
 import Share from './share';
 
 class Content extends Component {
+    renderHome() {
+        return (
+            <div className="home-title">
+                <h1>{'ELIGE A TU 11 IDEAL'}</h1>
+                <div className="home-button">
+                    <button className="comenzar btn btn-primary" onClick={() => this.props.updatePositionSelected()}>{'Comenzar'}</button>
+                </div>
+            </div>
+        )
+    }
+
     renderTitle() {
         return (
             <div className="title">
@@ -21,6 +35,7 @@ class Content extends Component {
 
         return (
             <div className="content">
+                { !positionSelected && this.renderHome() }
                 { positionSelected && positionSelected !== '11 IDEAL' && this.renderTitle() && <PlayerSelection /> }
                 { positionSelected === '11 IDEAL' && <Share />}
             </div>
@@ -32,7 +47,13 @@ const mapStateToProps = state => {
     return {
         positionSelected: getPositionSelected(state)
     }
-}
+};
 
-export default connect(mapStateToProps)(Content);
+const mapDispatchToProps = dispatch => (
+    {
+        updatePositionSelected: () => dispatch(positionSelected('ARQUERO'))
+    }
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Content);
 
