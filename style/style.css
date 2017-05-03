@@ -1,3 +1,18 @@
+.home {
+    display: flex;
+    flex-direction: column;
+}
+
+.home-title {
+    align-self: center;
+    padding-top: 100px;
+}
+
+.home-button {
+    align-self: center;
+    padding-top: 50px;
+}
+
 .positions {
     display: flex;
     flex-direction: row;
@@ -32,8 +47,41 @@
     to {color: white;}
 }
 
+.players {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 100px;
+}
+
+.player {
+    text-align: center;
+    vertical-align: middle;
+    max-height: 100px;
+    width: 140px;
+    text-align: center;
+    padding: 7px;
+}
+
 .player-selected {
-    background: red;
+    text-align: center;
+    vertical-align: middle;
+    max-height: 100px;
+    width: 140px;
+    text-align: center;
+    padding: 7px;
+    border: 1px solid;
+}
+
+.save-button {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.sharing-template {
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-around;
 }
 
 .resp-sharing-button__link,

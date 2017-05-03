@@ -6,7 +6,6 @@ import SharingTemplate from './sharing-template';
 class Share extends Component {
     render() {
         const { selectedPlayers } = this.props;
-        console.log('raul', selectedPlayers);
         return (
             <div className="share">
                 <pre>{JSON.stringify(selectedPlayers, null, 2)}</pre>

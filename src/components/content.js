@@ -10,8 +10,8 @@ import Share from './share';
 class Content extends Component {
     renderHome() {
         return (
-            <div className="home-title">
-                <h1>{'ELIGE A TU 11 IDEAL'}</h1>
+            <div className="home">
+                <h1 className="home-title">{'ELIGE A TU 11 IDEAL'}</h1>
                 <div className="home-button">
                     <button className="comenzar btn btn-primary" onClick={() => this.props.updatePositionSelected()}>{'Comenzar'}</button>
                 </div>
