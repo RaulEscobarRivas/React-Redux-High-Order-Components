@@ -15,14 +15,15 @@ body {
     height: 100%;
 }
 
-.app-container {
+.app-component {
     width: 100%;
     height: 100%;
 }
 
 .landing {
     height: 100%;
-    background-image: url('../images/11-bg-inicio.jpg');
+    background: url(../images/11-bg-inicio.jpg) center no-repeat;
+    background-size: cover;
 }
 
 .home {
@@ -32,16 +33,16 @@ body {
 
 .logos {
     text-align: center;
-    padding-top: 110px;
+    padding-top: 50px;
 }
 
 .app-logo {
-    width: 20%;
+    width: 15%;
     height: auto;
 }
 
 .paladarnegro-logo {
-    width: 20%;
+    width: 15%;
     height: auto;
 }
 
@@ -49,7 +50,7 @@ body {
     align-self: center;
     padding-top: 10px;
     color: white;
-    font-weight: 900;
+    font-weight: 700;
 }
 
 .home-subtitle {

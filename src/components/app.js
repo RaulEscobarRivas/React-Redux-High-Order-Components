@@ -6,7 +6,7 @@ import Landing from './landing';
 export default class App extends Component {
     render() {
         return (
-            <div className="app-container">
+            <div className="app-component">
                 <Landing />
             </div>
         );
