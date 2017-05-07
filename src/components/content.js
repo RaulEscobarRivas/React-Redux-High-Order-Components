@@ -8,17 +8,6 @@ import PlayerSelection from './player-selection';
 import Share from './share';
 
 class Content extends Component {
-    renderHome() {
-        return (
-            <div className="home">
-                <h1 className="home-title">{'ELIGE A TU 11 IDEAL'}</h1>
-                <div className="home-button">
-                    <button className="comenzar btn btn-primary" onClick={() => this.props.updatePositionSelected()}>{'Comenzar'}</button>
-                </div>
-            </div>
-        )
-    }
-
     renderTitle() {
         return (
             <div className="title">
@@ -35,7 +24,6 @@ class Content extends Component {
 
         return (
             <div className="content">
-                { !positionSelected && this.renderHome() }
                 { positionSelected && positionSelected !== '11 IDEAL' && this.renderTitle() && <PlayerSelection /> }
                 { positionSelected === '11 IDEAL' && <Share />}
             </div>
@@ -49,11 +37,5 @@ const mapStateToProps = state => {
     }
 };
 
-const mapDispatchToProps = dispatch => (
-    {
-        updatePositionSelected: () => dispatch(positionSelected('ARQUERO'))
-    }
-);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Content);
+export default connect(mapStateToProps)(Content);
 
