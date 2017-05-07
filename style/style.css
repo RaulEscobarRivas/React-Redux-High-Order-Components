@@ -81,10 +81,25 @@ body {
     padding: 0 45px 0 45px!important;
 }
 
+@media (max-width: 500px) {
+    .home-title {
+        font-size: 30px;
+    }
+
+    .home-button {
+        padding-top: 30px;
+    }
+
+    .comenzar {
+        font-size: 25px!important;
+        padding: 0 15px 0 15px!important;
+    }
+}
+
 .paladarnegro-link {
     width: 270px;
     align-self: center;
-    padding-top: 50px;
+    margin-top: 50px;
     color: white;
     font-size: 25px;
 }
