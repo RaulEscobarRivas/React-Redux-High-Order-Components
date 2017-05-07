@@ -13,13 +13,26 @@ class Landing extends Component {
         return (
             <div className="home">
                 <div className="logos">
-                    <img className="app-logo"/>
-                    <img className="paladarnegro-logo"/>
+                    <img src={'../images/11-marca-11.png'} className="app-logo"/>
+                    <img src={'../images/11-marca-PN.png'} className="paladarnegro-logo"/>
                 </div>
-                <h1 className="home-title">{'ELIGE A TU 11 IDEAL'}</h1>
+                <h1 className="home-title">{'CAMPEONES DEL MUNDO'}</h1>
+                <div className="home-subtitle">
+                    <span className="home-subtitle-1">
+                        {
+                            'Ponete el traje de DT, selecciona tu #11ideal'
+                        }
+                    </span>
+                    <span className="home-subtitle-2">
+                        {
+                            'y compartilo con tus amigos.'
+                        }
+                    </span>
+                </div>
                 <div className="home-button">
-                    <button className="comenzar btn btn-primary" onClick={() => this.props.updatePositionSelected()}>{'Comenzar'}</button>
+                    <button className="comenzar btn" onClick={() => this.props.updatePositionSelected()}>{'INICIAR SELECCIÓN'}</button>
                 </div>
+                <a className="paladarnegro-link" href="http://paladarnegro.net/">{'www.paladarnegro.net'}</a>
             </div>
         )
     }
