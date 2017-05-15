@@ -10,7 +10,7 @@ body {
     font-family: Montserrat, sans-serif;
 }
 
-.container {
+.app-container {
     width: 100%;
     height: 100%;
 }
@@ -23,6 +23,12 @@ body {
 .landing {
     height: 100%;
     background: url(../images/11-bg-inicio.jpg) center no-repeat;
+    background-size: cover;
+}
+
+.selection {
+    height: 100%;
+    background: url(../images/11-bg-seleccion.jpg) center no-repeat;
     background-size: cover;
 }
 
@@ -108,27 +114,34 @@ body {
     color: white;
 }
 
+.content {
+    width: 100%;
+    height: 70%;
+}
+
 .positions {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-top: 50px;
-
+    padding-top: 3em;
+    font-weight: bold;
 }
 
 .position {
-    height: 40px;
-    min-width: 140px;
     text-align: center;
     padding: 7px;
+    cursor: default;
+    min-width: 10em;
+    color: white;
+    opacity: 0.8;
 }
 
 .position-selected {
-    height: 40px;
-    min-width: 140px;
     text-align: center;
+    color: white;
     padding: 7px;
-    border: 1px solid;
+    cursor: default;
+    min-width: 10em;
 }
 
 .position:hover {

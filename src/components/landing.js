@@ -39,9 +39,9 @@ class Landing extends Component {
 
     render() {
         const { positionSelected } = this.props;
-
+        const className = positionSelected ? 'selection' : 'landing';
         return (
-            <div className="landing">
+            <div className={className}>
                 { !positionSelected && this.renderHome() }
                 { positionSelected &&
                     [<Header/>,
