@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { positionSelected } from '../actions';
 import { getPositionSelected, getPlayersPositions } from '../reducers';
 
-const positions = ['ARQUERO','DEFENSA','MEDIOCAMPO', 'DELANTEROS', '11 IDEAL'];
+const positions = ['ARQUERO','DEFENSA','MEDIOCAMPO', 'DELANTEROS'];
 
 const getPositionToSelect = position => {
     switch (position) {
@@ -39,15 +39,32 @@ const getPositionForClassName = position => {
 };
 
 class Header extends Component {
+    injectLinksWithLogos(links) {
+        const logos = (
+            <div className="logos-selection">
+                <img src={'../images/11-marca-11.png'} className="app-logo-selection"/>
+                <img src={'../images/11-marca-PN.png'} className="paladarnegro-logo-selection"/>
+            </div>
+        );
+
+        links[0].splice(2, 0, logos);
+        console.log('join no', links);
+
+        return links;
+    }
+
     clickHandler(position) {
         this.props.positionSelected(getPositionToSelect(position));
     }
 
     renderLinks() {
-        return positions.map( (position, index) => {
+        let links = [];
+        links.push(positions.map( (position, index) => {
             const className = ( position === getPositionForClassName(this.props.selectedPosition)) ? 'position-selected' : 'position';
             return <div key={index} className={className} onClick={() => this.clickHandler(position)}>{position}</div>
-        });
+        }));
+
+        return this.injectLinksWithLogos(links);
     }
 
     render() {

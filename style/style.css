@@ -30,6 +30,7 @@ body {
     height: 100%;
     background: url(../images/11-bg-seleccion.jpg) center no-repeat;
     background-size: cover;
+    padding-top: 3em;
 }
 
 .home {
@@ -40,6 +41,23 @@ body {
 .logos {
     text-align: center;
     padding-top: 50px;
+}
+
+.logos-selection {
+    text-align: center;
+    min-width: 20%;
+    max-width: 20%;
+    margin-top: -2em;
+}
+
+.app-logo-selection {
+    width: 50%;
+    height: auto;
+}
+
+.paladarnegro-logo-selection {
+    width: 50%;
+    height: auto;
 }
 
 .app-logo {
@@ -95,12 +113,45 @@ body {
     .home-button {
         padding-top: 30px;
     }
-
     .comenzar {
         font-size: 25px!important;
         padding: 0 15px 0 15px!important;
     }
 }
+
+@media (max-width: 700px) {
+    .positions {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        font-size: 15px!important;
+    }
+
+    .position {
+        text-align: center;
+        cursor: default;
+        min-width: 0em;
+        color: white;
+        opacity: 0.7;
+    }
+
+    .position-selected {
+        text-align: center;
+        color: white;
+        cursor: default;
+        min-width: 0em;
+    }
+}
+
+@media (max-width: 550px) {
+    .positions {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        font-size: 10px!important;
+    }
+}
+
 
 .paladarnegro-link {
     width: 270px;
@@ -123,25 +174,22 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding-top: 3em;
-    font-weight: bold;
+    font-size: 22px;
 }
 
 .position {
     text-align: center;
-    padding: 7px;
     cursor: default;
-    min-width: 10em;
+    min-width: 5em;
     color: white;
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
 .position-selected {
     text-align: center;
     color: white;
-    padding: 7px;
     cursor: default;
-    min-width: 10em;
+    min-width: 5em;
 }
 
 .position:hover {
