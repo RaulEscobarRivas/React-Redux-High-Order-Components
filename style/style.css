@@ -203,29 +203,55 @@ body {
     to {color: white;}
 }
 
+.player-selection {
+    height: 100%;
+    width: 100%;
+}
+
 .players {
     display: flex;
     justify-content: space-around;
-    padding-top: 100px;
+    margin-top: 100px;
+    height: 100%;
+    width: 100%;
+}
+
+.player-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 20em;
+    align-items: center;
+    text-align: center;
+    color: white;
+    opacity: 0.7;
+}
+
+.player-wrapper-selected {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 20em;
+    height: 27em;
+    align-items: center;
+    text-align: center;
+    background: url(../images/11-BOTON-seleccion.png) center no-repeat;
+    background-size: cover;
 }
 
 .player {
+    margin-top: 1em;
     text-align: center;
     vertical-align: middle;
-    max-height: 100px;
-    width: 140px;
+    width: 16em;
+    height: 17em;
     text-align: center;
     padding: 7px;
+    background: url(../images/11-maradona.png) center no-repeat;
+    background-size: cover;
 }
 
-.player-selected {
-    text-align: center;
-    vertical-align: middle;
-    max-height: 100px;
-    width: 140px;
-    text-align: center;
-    padding: 7px;
-    border: 1px solid;
+.player-name {
+    margin-top: 1em;
 }
 
 .save-button {

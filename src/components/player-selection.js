@@ -60,8 +60,13 @@ class PlayerSelection extends Component {
     renderPlayers() {
         position = Object.keys(this.state.players);
         return position.map( (player, index) => {
-            const className = this.playerSelectedHighlight(player) ? 'player-selected' : 'player';
-            return <div key={index} className={className} onClick={() => this.clickHandler(player)}>{this.state.players[player].name}</div>;
+            const className = this.playerSelectedHighlight(player) ? 'player-wrapper-selected' : 'player-wrapper';
+            return (
+                <div key={index} className={className} onClick={() => this.clickHandler(player)}>
+                    <div className={'player'}/>
+                    <div className={'player-name'}>{this.state.players[player].name}</div>
+                </div>
+                );
             }
         );
     }
