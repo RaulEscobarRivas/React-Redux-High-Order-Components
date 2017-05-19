@@ -19,14 +19,20 @@ class PlayerSelection extends Component {
 
         this.state = {
             players: this.props.players,
-            saveDisabled: true
+            saveDisabled: true,
+            backDisabled: true
         }
     }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.positionSelected !== this.props.positionSelected) {
-            this.setState({ players: nextProps.players });
-            this.setState({ saveDisabled: true });
+            this.setState({ players: nextProps.players, saveDisabled: true });
+        }
+
+        if (nextProps.positionSelected === this.props.playersPositions[0]) {
+            this.setState({ backDisabled: true });
+        } else {
+            this.setState({ backDisabled: false });
         }
     }
 
@@ -80,15 +86,20 @@ class PlayerSelection extends Component {
         }
     }
 
+    backHandler() {
+        let positionIndex = this.props.playersPositions.findIndex( element => element === this.props.positionSelected) - 1;
+        this.props.updatePositionSelected(this.props.playersPositions[positionIndex]);
+    }
+
     render() {
-        const buttonClass = this.state.saveDisabled ? 'btn btn-default disabled' : 'btn btn-primary';
         return (
             <div className="player-selection">
                 <div className="players">
                     {this.renderPlayers()}
                 </div>
                 <div className="save-button">
-                    <button className={buttonClass} disabled={this.state.saveDisabled} onClick={() => this.saveHandler()}>{'Guardar'}</button>
+                    <button className={'save btn btn-primary'} disabled={this.state.saveDisabled} onClick={() => this.saveHandler()}>{'Avanzar'}</button>
+                    <button className={'back btn btn-primary'} disabled={this.state.backDisabled} onClick={() => this.backHandler()}>{'Atrás'}</button>
                 </div>
             </div>
         );
