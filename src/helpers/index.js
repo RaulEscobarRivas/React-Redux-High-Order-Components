@@ -1,3 +1,5 @@
+import { fromJS } from 'immutable';
+
 const formattSelectedPlayers = players => {
     let playersStructure = {};
 
@@ -12,4 +14,17 @@ const formattSelectedPlayers = players => {
     return playersStructure;
 };
 
-export { formattSelectedPlayers };
+const isPlayerSelected = players => {
+    const playersMap = fromJS(players);
+    let isSelected;
+
+    playersMap.map(player => {
+        if (player.get('selected')) {
+            isSelected = true;
+        }
+    });
+
+    return isSelected;
+};
+
+export { formattSelectedPlayers, isPlayerSelected };

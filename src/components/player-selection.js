@@ -10,6 +10,7 @@ import {
     getPlayers,
     getPlayersPositions
 } from '../reducers';
+import { isPlayerSelected } from '../helpers';
 
 let position;
 
@@ -33,6 +34,10 @@ class PlayerSelection extends Component {
             this.setState({ backDisabled: true });
         } else {
             this.setState({ backDisabled: false });
+        }
+
+        if (isPlayerSelected(nextProps.players)) {
+            this.setState({ saveDisabled: false });
         }
     }
 
