@@ -105,6 +105,40 @@ body {
     padding: 0 45px 0 45px!important;
 }
 
+.player-buttons-container {
+    display: flex;
+    justify-content: center;
+}
+
+.save {
+    width: 7em;
+    border-radius: 0!important;
+    font-size: 2em!important;
+    background-color: transparent!important;
+    color: white!important;
+    font-weight: 900!important;
+    padding: 0!important;
+    margin-right: 1em;
+}
+
+.back {
+    width: 7em;
+    border-radius: 0!important;
+    font-size: 2em!important;
+    background-color: transparent!important;
+    color: white!important;
+    padding: 0!important;
+    font-weight: 900!important;
+}
+
+.back:focus {
+    outline: 0!important;
+}
+
+.save:focus {
+    outline: 0!important;
+}
+
 @media (max-width: 500px) {
     .home-title {
         font-size: 30px;
@@ -175,6 +209,7 @@ body {
     flex-direction: row;
     justify-content: space-around;
     font-size: 22px;
+    height: 0%;
 }
 
 .position {
@@ -252,12 +287,6 @@ body {
 
 .player-name {
     margin-top: 1em;
-}
-
-.save-button {
-    display: flex;
-    justify-content: center;
-    padding-top: 50px;
 }
 
 .sharing-template {
