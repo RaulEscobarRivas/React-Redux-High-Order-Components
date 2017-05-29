@@ -48,13 +48,12 @@ class Header extends Component {
         );
 
         links[0].splice(2, 0, logos);
-        console.log('join no', links);
 
         return links;
     }
 
     clickHandler(position) {
-        this.props.positionSelected(getPositionToSelect(position));
+        // this.props.positionSelected(getPositionToSelect(position));
     }
 
     renderLinks() {

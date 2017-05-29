@@ -295,6 +295,35 @@ body {
     justify-content: space-around;
 }
 
+.selected-players {
+    display: flex;
+    flex-direction: column;
+    margin-top: 6em;
+}
+
+.selected-players-row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.selected-player-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.selected-player {
+    text-align: center;
+    vertical-align: middle;
+    width: 8em;
+    height: 8em;
+    text-align: center;
+    background: url(../images/11-maradona.png) center no-repeat;
+    background-size: cover;
+}
+
 .resp-sharing-button__link,
 .resp-sharing-button__icon {
   display: inline-block
