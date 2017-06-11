@@ -37,11 +37,36 @@ class Landing extends Component {
         )
     }
 
+    backgroundStyle(position) {
+        if (!position) {
+            return {
+                background: `url(../images/11-bg-inicio.jpg) center no-repeat`,
+                backgroundSize: 'cover'
+            };
+        }
+
+        if (position === "11 IDEAL") {
+            return {
+                background: `url(../images/11-bg-final.jpg) no-repeat`,
+                backgroundSize: 'cover',
+                backgroundPosition: '50% -30%'
+            };
+        } else {
+            return {
+                background: `url(../images/11-bg-seleccion.jpg) center no-repeat`,
+                backgroundSize: 'cover'
+            };
+        }
+    }
+
     render() {
         const { positionSelected } = this.props;
         const className = positionSelected ? 'selection' : 'landing';
+        const style = this.backgroundStyle(positionSelected);
+        console.log('RAUL', style);
+
         return (
-            <div className={className}>
+            <div className={className} style={style} >
                 { !positionSelected && this.renderHome() }
                 { positionSelected &&
                     [<Header/>,

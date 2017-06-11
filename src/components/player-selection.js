@@ -72,9 +72,13 @@ class PlayerSelection extends Component {
         position = Object.keys(this.state.players);
         return position.map((player, index) => {
             const className = this.playerSelectedHighlight(player) ? 'player-wrapper-selected' : 'player-wrapper';
+            const style = {
+                backgroundSize: 'cover',
+                background: `url(../images/players/${this.state.players[player].key}.png) center no-repeat`
+            };
             return (
                 <div key={index} className={className} onClick={() => this.clickHandler(player)}>
-                    <div className={'player'}/>
+                    <div className={'player'} style={style}/>
                     <div className={'player-name'}>{this.state.players[player].name}</div>
                 </div>
                 );

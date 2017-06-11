@@ -22,14 +22,12 @@ body {
 
 .landing {
     height: 100%;
-    background: url(../images/11-bg-inicio.jpg) center no-repeat;
     background-size: cover;
 }
 
 .selection {
     height: 100%;
-    background: url(../images/11-bg-seleccion.jpg) center no-repeat;
-    background-size: cover;
+    background-size: cover!important;
     padding-top: 3em;
 }
 
@@ -281,7 +279,6 @@ body {
     height: 17em;
     text-align: center;
     padding: 7px;
-    background: url(../images/11-maradona.png) center no-repeat;
     background-size: cover;
 }
 
@@ -317,10 +314,9 @@ body {
 .selected-player {
     text-align: center;
     vertical-align: middle;
-    width: 8em;
-    height: 8em;
+    width: 11em;
+    height: 13em;
     text-align: center;
-    background: url(../images/11-maradona.png) center no-repeat;
     background-size: cover;
 }
 

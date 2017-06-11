@@ -4,31 +4,29 @@ import { getSelectedPlayers, getPlayersPositions } from '../reducers';
 import SharingTemplate from './sharing-template';
 import { fromJS } from 'immutable';
 
-const buildArray = elems => {
-    let result = [];
-
-    for (let i = 0; i<=elems.length; i++) {
-        result.push()
-    }
-};
-
 class Share extends Component {
     renderRow(position, players) {
+
         if (players.length > 1) {
             return players.map((player, index) => {
+                const style = { background: `url(../images/players/${player.key}.png) center no-repeat` };
                 const className = `selected-player-wrapper ${position}`;
                 return (
                     <div key={index} className={className}>
-                        <div className={'selected-player'}/>
+                        <div className={'selected-player'} style={style} />
                         <div className={'selected-player-name'}>{player.name}</div>
                     </div>
                 );
             });
         } else {
-            const className = `selected-player-wrapper ${players.name}`;
+            const style = {
+                backgroundSize: 'cover',
+                background: `url(../images/players/${players.key}.png) center no-repeat`
+            };
+            const className = `selected-player-wrapper ${position}`;
             return (
                 <div className={className}>
-                    <div className={'selected-player'}/>
+                    <div className={'selected-player'} style={style} />
                     <div className={'selected-player-name'}>{players.name}</div>
                 </div>
             );
@@ -38,7 +36,6 @@ class Share extends Component {
     renderPlayers(players) {
         const playersList = fromJS(players);
         const keys = Object.keys(players).sort();
-        console.log('KEYS', keys);
         const arquero = playersList.get(keys[0]).toJS();
 
         let defensa = [];
