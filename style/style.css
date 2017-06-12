@@ -320,6 +320,46 @@ body {
     background-size: cover;
 }
 
+div[class*='_04_'] {
+    order: 1;
+}
+
+div[class*='_02_'] {
+    order: 2;
+}
+
+div[class*='_06_'] {
+    order: 3;
+}
+
+div[class*='_03_'] {
+    order: 4;
+}
+
+div[class*='_08_'] {
+    order: 1;
+}
+
+div[class*='_05'] {
+    order: 2;
+}
+
+div[class*='_10_'] {
+    order: 3;
+}
+
+div[class*='_07_'] {
+    order: 1;
+}
+
+div[class*='_09_'] {
+    order: 2;
+}
+
+div[class*='_11_'] {
+    order: 3;
+}
+
 .resp-sharing-button__link,
 .resp-sharing-button__icon {
   display: inline-block

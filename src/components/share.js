@@ -10,7 +10,7 @@ class Share extends Component {
         if (players.length > 1) {
             return players.map((player, index) => {
                 const style = { background: `url(../images/players/${player.key}.png) center no-repeat` };
-                const className = `selected-player-wrapper ${position}`;
+                const className = `selected-player-wrapper ${player.key}`;
                 return (
                     <div key={index} className={className}>
                         <div className={'selected-player'} style={style} />
