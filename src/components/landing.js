@@ -63,7 +63,6 @@ class Landing extends Component {
         const { positionSelected } = this.props;
         const className = positionSelected ? 'selection' : 'landing';
         const style = this.backgroundStyle(positionSelected);
-        console.log('RAUL', style);
 
         return (
             <div className={className} style={style} >

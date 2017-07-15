@@ -6,7 +6,6 @@ import { fromJS } from 'immutable';
 
 class Share extends Component {
     renderRow(position, players) {
-
         if (players.length > 1) {
             return players.map((player, index) => {
                 const style = { background: `url(../images/players/${player.key}.png) center no-repeat` };
