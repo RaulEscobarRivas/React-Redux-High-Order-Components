@@ -107,8 +107,8 @@ class PlayerSelection extends Component {
                     {this.renderPlayers()}
                 </div>
                 <div className="player-buttons-container">
-                        <button className={'save btn'} disabled={this.state.saveDisabled} onClick={() => this.saveHandler()}>{'Avanzar'}</button>
                         <button className={'back btn'} disabled={this.state.backDisabled} onClick={() => this.backHandler()}>{'Atrás'}</button>
+                        <button className={'save btn'} disabled={this.state.saveDisabled} onClick={() => this.saveHandler()}>{'Avanzar'}</button>
                 </div>
             </div>
         );
