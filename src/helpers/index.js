@@ -3,7 +3,7 @@ import { fromJS } from 'immutable';
 const formattSelectedPlayers = players => {
     let playersStructure = {};
 
-    Object.keys(players).map( (position, index) => {
+    Object.keys(players).map((position, index) => {
         for (const player in players[position]) {
             if (players[position][player].selected === true) {
                 Object.assign(playersStructure, { [Object.keys(players)[index]] : players[position][player] });
@@ -28,12 +28,13 @@ const isPlayerSelected = players => {
 };
 
 const formattSharingUrl = players => {
-    const playersMap = fromJS(players);
-    let playersSelectedUrlString = '';
+    let playersSelectedUrlString = '?';
 
-    const playersKeys = playersMap.map(player => playersSelectedUrlString += `${player.get('key')}+`);
+    Object.keys(players).map(position => {
+        playersSelectedUrlString += `${position}=${players[position].key}&`;
+    });
 
-    playersSelectedUrlString = playersSelectedUrlString.replace(/\+$/, "");
+    playersSelectedUrlString = playersSelectedUrlString.replace(/\&$/, "");
 
     return playersSelectedUrlString;
 };
