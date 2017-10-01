@@ -79,7 +79,7 @@ class Share extends Component {
         return (
             <div className="share">
                 { this.renderPlayers(selectedPlayers) }
-                <SharingTemplate />
+                <SharingTemplate url={formattSharingUrl(selectedPlayers)}/>
             </div>
         );
     }
