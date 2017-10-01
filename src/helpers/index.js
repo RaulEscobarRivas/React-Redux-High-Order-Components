@@ -27,4 +27,19 @@ const isPlayerSelected = players => {
     return isSelected;
 };
 
-export { formattSelectedPlayers, isPlayerSelected };
+const formattSharingUrl = players => {
+    const playersMap = fromJS(players);
+    let playersSelectedUrlString = '';
+
+    const playersKeys = playersMap.map(player => playersSelectedUrlString += `${player.get('key')}+`);
+
+    playersSelectedUrlString = playersSelectedUrlString.replace(/\+$/, "");
+
+    return playersSelectedUrlString;
+};
+
+export { 
+    formattSelectedPlayers,
+    isPlayerSelected,
+    formattSharingUrl
+};

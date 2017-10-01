@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getSelectedPlayers, getPlayersPositions } from '../reducers';
 import SharingTemplate from './sharing-template';
 import { fromJS } from 'immutable';
+import { formattSharingUrl } from '../helpers';
 
 class Share extends Component {
     renderRow(position, players) {
