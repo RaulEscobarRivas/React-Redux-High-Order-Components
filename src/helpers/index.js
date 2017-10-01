@@ -31,12 +31,12 @@ const formattSharingUrl = players => {
     let playersSelectedUrlString = '?';
 
     Object.keys(players).map(position => {
-        playersSelectedUrlString += `${position}=${players[position].key}&`;
+        playersSelectedUrlString += `${position}=${players[position].key}` + '&';
     });
 
     playersSelectedUrlString = playersSelectedUrlString.replace(/\&$/, "");
 
-    return playersSelectedUrlString;
+    return encodeURIComponent(playersSelectedUrlString);
 };
 
 export { 
