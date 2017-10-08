@@ -46,7 +46,8 @@ class Share extends Component {
 
         let mediocampo = [];
 
-        for(let i = 8; i < keys.length; i++) {
+        for(let i = 8; i < 11; i++) {
+            console.log('mediocampo', keys.length);
             mediocampo.push(playersList.get(keys[i]).toJS());
         }
 
@@ -76,6 +77,7 @@ class Share extends Component {
 
     render() {
         const { selectedPlayers } = this.props;
+        console.log('selected players!', selectedPlayers);
         return (
             <div className="share">
                 { this.renderPlayers(selectedPlayers) }

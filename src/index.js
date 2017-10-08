@@ -8,6 +8,14 @@ import thunk from 'redux-thunk'
 
 import App from './components/app';
 import reducers from './reducers';
+import {
+    updatePlayerSelection,
+    positionSelected
+} from './actions';
+import { 
+	getAllUrlParams,
+	mapUrlParametersToSelectedPlayers 
+} from './helpers';
 
 const logger = createLogger();
 const store = createStore(
@@ -15,10 +23,16 @@ const store = createStore(
     applyMiddleware(thunk, logger)
 );
 
+if (Object.entries(getAllUrlParams()).length === 11) {
+	store.dispatch(updatePlayerSelection(mapUrlParametersToSelectedPlayers(store.getState().players, getAllUrlParams())));
+	store.dispatch(positionSelected('11 IDEAL'));
+}
+
 ReactDOM.render(
     <Provider store={store}>
         <Router history={browserHistory}>
             <Route path="/" component={App} />
         </Router>
     </Provider>
-    , document.querySelector('.app-container'));
+    , document.querySelector('.app-container')
+);
