@@ -7,6 +7,17 @@ import {
 import PlayerSelection from './player-selection';
 import Share from './share';
 
+const getStyle = positionSelected => {
+    if (positionSelected === '11 IDEAL') {
+        return {
+                background: `url(../images/cancha.png) center no-repeat`,
+                backgroundSize: '99% 99%',
+                height: '65em',
+                padding: '0'
+            };
+        }
+};
+
 class Content extends Component {
     renderTitle() {
         return (
@@ -21,9 +32,10 @@ class Content extends Component {
 
     render() {
         const { positionSelected } = this.props;
+        const style = getStyle(positionSelected);
 
         return (
-            <div className="content">
+            <div className="content" style={style} >
                 { positionSelected && positionSelected !== '11 IDEAL' && this.renderTitle() && <PlayerSelection /> }
                 { positionSelected === '11 IDEAL' && <Share />}
             </div>
