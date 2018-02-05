@@ -44,8 +44,8 @@ export default {
     MEDIOCAMPO_LATERAL_DERECHO: {
         player1: { name: 'Diego Maradona', selected: false, key: '_10_01' },
         player2: { name: 'Bobby Charlton', selected: false, key: '_10_02' },
-        player3: { name: 'Rivaldo', selected: false, key: '_10_03' },
-        player4: { name: 'Francesco Totti', selected: false, key: '_10_04' }
+        player3: { name: 'Rivaldo', selected: false, key: '_10_04' },
+        player4: { name: 'Francesco Totti', selected: false, key: '_10_03' }
     },
     DELANTEROS_LATERAL_IZQUIERDO: {
         player1: { name: 'Pelé', selected: false, key: '_07_01' },
