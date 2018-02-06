@@ -10,10 +10,7 @@ import Share from './share';
 const getStyle = positionSelected => {
     if (positionSelected === '11 IDEAL') {
         return {
-                background: `url(../images/cancha.png) center no-repeat`,
-                backgroundSize: '99% 99%',
-                height: '65em',
-                padding: '0'
+                backgroundSize: '100% 100%',
             };
         }
 };

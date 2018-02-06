@@ -58,16 +58,16 @@ class Share extends Component {
 
         return (
             <div className="selected-players">
-                <div className="selected-players-row">
+                <div key={1} className="selected-players-row">
                     { this.renderRow(keys[0], arquero) }
                 </div>
-                <div className="selected-players-row">
+                <div key={2} className="selected-players-row">
                     { this.renderRow('DEFENSA', defensa) }
                 </div>
-                <div className="selected-players-row">
+                <div key={3} className="selected-players-row">
                     { this.renderRow('MEDIOCAMPO', mediocampo) }
                 </div>
-                <div className="selected-players-row">
+                <div key={4} className="selected-players-row">
                     { this.renderRow('DELANTEROS', delanteros) }
                 </div>
             </div>
@@ -76,12 +76,12 @@ class Share extends Component {
 
     render() {
         const { selectedPlayers } = this.props;
-        return (
+        return ([
             <div className="share">
                 { this.renderPlayers(selectedPlayers) }
-                <SharingTemplate url={formattSharingUrl(selectedPlayers)}/>
-            </div>
-        );
+            </div>,
+            <SharingTemplate url={formattSharingUrl(selectedPlayers)}/>
+        ]);
     }
 }
 

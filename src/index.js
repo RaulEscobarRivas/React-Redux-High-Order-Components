@@ -30,9 +30,7 @@ if (Object.entries(getAllUrlParams()).length === 11) {
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router history={browserHistory}>
-            <Route path="/" component={App} />
-        </Router>
+        <App/>
     </Provider>
     , document.querySelector('.app-container')
 );
