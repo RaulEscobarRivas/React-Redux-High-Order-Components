@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { Router, Route, browserHistory } from 'react-router';
-import createLogger from 'redux-logger';
 import thunk from 'redux-thunk'
 
 import App from './components/app';
@@ -17,10 +16,9 @@ import {
 	mapUrlParametersToSelectedPlayers 
 } from './helpers';
 
-const logger = createLogger();
 const store = createStore(
     reducers,
-    applyMiddleware(thunk, logger)
+    applyMiddleware(thunk)
 );
 
 if (Object.entries(getAllUrlParams()).length === 11) {

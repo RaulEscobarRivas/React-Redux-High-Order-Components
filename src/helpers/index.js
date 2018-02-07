@@ -51,7 +51,9 @@ const formattSharingUrl = players => {
 
     playersSelectedUrlString = playersSelectedUrlString.replace(/\&$/, "");
 
-    return encodeURIComponent(playersSelectedUrlString);
+    const fullUrl = window.location.origin + playersSelectedUrlString;
+
+    return encodeURIComponent(fullUrl);
 };
 
 const getAllUrlParams = url => {
