@@ -46,12 +46,14 @@ const formattSharingUrl = players => {
     let playersSelectedUrlString = '?';
 
     Object.keys(players).map(position => {
-        playersSelectedUrlString += `${position}=${players[position].key}` + '&';
+        if (position !== 'null') {
+            playersSelectedUrlString += `${position}=${players[position].key}` + '&';
+        }
     });
 
     playersSelectedUrlString = playersSelectedUrlString.replace(/\&$/, "");
 
-    const fullUrl = window.location.origin + playersSelectedUrlString;
+    const fullUrl = `${window.location.origin}/${playersSelectedUrlString}`;
 
     return encodeURIComponent(fullUrl);
 };
